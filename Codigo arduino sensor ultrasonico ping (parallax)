@@ -41,17 +41,17 @@ long readUltrasonicDistance(int triggerPin, int echoPin)
 
 void setup()
 {
-  Serial.begin(9600);
   pinMode(8, OUTPUT);
   pinMode(7, OUTPUT);
   pinMode(4, OUTPUT);
 }
 // condiciones iniciales pin 4 led rojo, pin 7 led amarillo y pin 8 led verde
+
 void loop()
 {
   float distancia = 0.01723 * readUltrasonicDistance(2, 2);
-
-  if((distancia < 336) && (distancia >= 200)) {
+ 
+ if((distancia < 336) && (distancia >= 200)) {
     digitalWrite(4, HIGH);
     digitalWrite(7, LOW);
     digitalWrite(8, LOW);
@@ -71,7 +71,7 @@ void loop()
   else {
     digitalWrite(8, LOW); 
   }
-  // comando para que se enciendan los leds segun la distancia tomada por el sensor
+  // comando para que se enciendan los leds según la distancia tomada por el sensor
   Serial.print("distancia: ");
   Serial.println(distancia+1.8);
   
